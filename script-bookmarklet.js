@@ -1,24 +1,28 @@
 javascript:(async function() {
-    // Criar uma mensagem no estilo "popup" na tela
-    const messageDiv = document.createElement('div');
-    messageDiv.style.position = 'fixed';
-    messageDiv.style.top = '10px';
-    messageDiv.style.left = '10px';
-    messageDiv.style.padding = '10px 20px';
-    messageDiv.style.backgroundColor = '#000';
-    messageDiv.style.color = '#fff';
-    messageDiv.style.borderRadius = '5px';
-    messageDiv.style.fontSize = '14px';
-    messageDiv.style.zIndex = '9999';
-    messageDiv.innerText = 'Desenvolvido por Rdzin';
-    
-    // Adiciona o div na tela
-    document.body.appendChild(messageDiv);
+    // Função para mostrar a tela preta com a mensagem
+    function showSplashScreen() {
+        var splashScreen = document.createElement('div');
+        splashScreen.style.position = 'fixed';
+        splashScreen.style.top = '0';
+        splashScreen.style.left = '0';
+        splashScreen.style.width = '100%';
+        splashScreen.style.height = '100%';
+        splashScreen.style.backgroundColor = '#000';
+        splashScreen.style.color = '#fff';
+        splashScreen.style.display = 'flex';
+        splashScreen.style.alignItems = 'center';
+        splashScreen.style.justifyContent = 'center';
+        splashScreen.style.fontSize = '24px';
+        splashScreen.style.zIndex = '1000';
+        splashScreen.innerHTML = 'Desenvolvido Por ScxttZarek';
 
-    // Remove o div após 5 segundos
-    setTimeout(() => {
-        messageDiv.remove();
-    }, 5000);
+        document.body.appendChild(splashScreen);
+
+        setTimeout(function() {
+            document.body.removeChild(splashScreen);
+            addButton();
+        }, 3000); // A tela preta será exibida por 3 segundos
+    }
 
     const API_KEY = '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';  // Substitua pela sua chave da API de IA
     const API_URL = 'https://api.openai.com/v1/completions';  // Para OpenAI (GPT-3 ou GPT-4)
@@ -107,31 +111,6 @@ function myFunction() {
         document.addEventListener('cut', forceBrowserDefault, true);
         document.addEventListener('paste', forceBrowserDefault, true);
         alert("Block Removed!");
-    }
-
-    // Função para mostrar a tela preta com a mensagem
-    function showSplashScreen() {
-        var splashScreen = document.createElement('div');
-        splashScreen.style.position = 'fixed';
-        splashScreen.style.top = '0';
-        splashScreen.style.left = '0';
-        splashScreen.style.width = '100%';
-        splashScreen.style.height = '100%';
-        splashScreen.style.backgroundColor = '#000';
-        splashScreen.style.color = '#fff';
-        splashScreen.style.display = 'flex';
-        splashScreen.style.alignItems = 'center';
-        splashScreen.style.justifyContent = 'center';
-        splashScreen.style.fontSize = '24px';
-        splashScreen.style.zIndex = '1000';
-        splashScreen.innerHTML = 'Desenvolvido Por ScxttZarek';
-
-        document.body.appendChild(splashScreen);
-
-        setTimeout(function() {
-            document.body.removeChild(splashScreen);
-            addButton();
-        }, 3000); // A tela preta será exibida por 3 segundos
     }
 
     // Função para adicionar o botão "Revelar Respostas"
